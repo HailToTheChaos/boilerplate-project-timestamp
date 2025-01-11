@@ -15,20 +15,20 @@ app.use(express.static('public'));
 
 // http://expressjs.com/en/starter/basic-routing.html
 app.get("/", function (req, res) {
-  res.sendFile(__dirname + '/views/index.html');
+    res.sendFile(__dirname + '/views/index.html');
 });
 
 
 // your first API endpoint... 
 app.get("/api/hello", function (req, res) {
-  res.json({ greeting: 'hello API' });
+    res.json({ greeting: 'hello API' });
 });
 
 
 
 // Listen on port set in environment variable or default to 3000
 var listener = app.listen(process.env.PORT || 3000, function () {
-  console.log('Your app is listening on port ' + listener.address().port);
+    console.log('Your app is listening on port ' + listener.address().port);
 });
 
 /**
@@ -53,46 +53,46 @@ var listener = app.listen(process.env.PORT || 3000, function () {
  * =============== 
 */
 function isNumeric(str) {
-  if (typeof str != "string") return false // we only process strings!  
-  return !isNaN(str) &&
-    !isNaN(parseInt(str))
+    if (typeof str != "string") return false // we only process strings!  
+    return !isNaN(str) &&
+        !isNaN(parseInt(str))
 }
 
 app.get("/api",
-  (request, response) => {
-    let date = new Date()
+    (request, response) => {
+        let date = new Date()
 
-    if (date == "Invalid Date") {
-      response.json(
-        { "error": "Invalid Date" }
-      )
-    } else {
-      response.json(
-        {
-          "unix": date.getTime(),
-          "utc": date.toUTCString()
+        if (date == "Invalid Date") {
+            response.json(
+                { "error": "Invalid Date" }
+            )
+        } else {
+            response.json(
+                {
+                    "unix": date.getTime(),
+                    "utc": date.toUTCString()
+                }
+            )
         }
-      )
     }
-  }
 )
 
 app.get("/api/:date?",
-  (request, response) => {
-    let dateString = request.params.date
-    let date = new Date(isNumeric(dateString) ? parseInt(dateString) : dateString)
+    (request, response) => {
+        let dateString = request.params.date
+        let date = new Date(isNumeric(dateString) ? parseInt(dateString) : dateString)
 
-    if (date == "Invalid Date") {
-      response.json(
-        { "error": "Invalid Date" }
-      )
-    } else {
-      response.json(
-        {
-          "unix": date.getTime(),
-          "utc": date.toUTCString()
+        if (date == "Invalid Date") {
+            response.json(
+                { "error": "Invalid Date" }
+            )
+        } else {
+            response.json(
+                {
+                    "unix": date.getTime(),
+                    "utc": date.toUTCString()
+                }
+            )
         }
-      )
     }
-  }
 )
