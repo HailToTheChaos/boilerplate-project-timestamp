@@ -2,4 +2,4 @@
 
 This is the boilerplate code for the Timestamp Microservice project. Instructions for building your project can be found at https://www.freecodecamp.org/learn/apis-and-microservices/apis-and-microservices-projects/timestamp-microservice
 
-Click [here]([https://github.com/HailToTheChaos/boilerplate-project-timestamp](https://github.com/HailToTheChaos/boilerplate-project-timestamp)) to see my solution
+Click [here](https://project-timestamp-freecodechamp.onrender.com/) to see my solution
